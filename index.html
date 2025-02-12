@@ -1,23 +1,110 @@
 <!DOCTYPE html>
-<style>
-  /* netnet default bg */
-  body {
-    margin: 0;
-    background-image: linear-gradient(#515199a8 2px, transparent 1px),
-      linear-gradient(90deg, #515199a8 2px, transparent 1px);
-    background-size: 50px 50px;
-    position: relative;
-    z-index: 1;
-    overflow: hidden;
-  }
-
-  body::before {
-    content: "";
-    position: absolute;
-    z-index: -1;
-    width: 100vw;
-    height: 100vh;
-    background: linear-gradient(0deg, #c76ebca8, #515199a8);
-  }
-</style>
+<html lang="en-US">
+  
+  <head>
+    <meta charset="utf-8">
+    <title>Insta Redesign</title>
+  </head>
+  
+  <!-- CSS STYLING -->
+  <style>
+    body {
+      background-color: hsl(237, 100%, 86%);
+      height: 100vh;
+    }
     
+    #container {
+      padding-top: 30px;
+      
+      display: grid;
+      grid-template-columns: 28vw 40vw 30vw;
+      place-items: center;
+    }
+    
+    #header {
+      height: 5vh;
+      width: 95vw;
+      
+      border-radius: 30px;
+      border: 10px solid white;
+      
+      background-color: #97FF95;
+      
+      color: white;
+      font-size: 30pt;
+      font-family: Brush Script MT, cursive;
+      
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      
+      padding: 10px;
+    }
+
+    #character {
+      background-color: #37FF34;
+
+      height: 25vw;
+      width: 25vw;
+      
+      border: solid 15px white;
+      border-radius: 25%;
+      
+      padding: 15px;
+      margin: 20px;
+
+      display: flex;
+      justify-content: space-around;
+
+    }
+
+    .eye {
+      background-color: black;
+
+      height: 20vw;
+      width: 9vw;
+      border-radius: 20vw;
+
+      margin-top: 1;
+    }
+
+    .post {
+      background-color: #97FF95;
+      
+      height: 25vw;
+      width: 25vw;
+      
+      border: solid 10px white;
+      border-radius: 10%;
+      
+    }
+
+  </style>
+
+  
+  <!--  HTML BODY  -->
+  <body>
+    <div id="header"> Natalyah Land </div>
+    
+    <div id="container">
+      
+      <div class="post"></div>
+      <div class="post"></div>
+      <div class="post"></div>
+      
+      <div class="post"></div>
+      <div id="character">
+        <div class="eye"></div>
+        <div class="eye"></div>
+      </div>
+      <div class="post"></div>
+      
+      <div class="post"></div>
+      <div class="post"></div>
+      <div class="post"></div>
+    
+    </div>
+    
+  </body>
+  
+</html>
