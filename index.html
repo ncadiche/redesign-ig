@@ -22,28 +22,30 @@
       grid-gap: 5px;
     }
     
-    #header {
-      height: 5vh;
-      width: 95vw;
+    #footer {
+      height: 2vh;
+      width: 50vw;
       
       border-radius: 30px;
       border: 10px solid white;
       
-      background-color: #97FF95;
+      background-color: hsl(252, 96%, 70%);
       
       color: white;
-      font-size: 30pt;
+      font-size: 18pt;
       font-family: Brush Script MT, cursive;
       
       display: flex;
       justify-content: center;
       align-items: center;
       
-      padding: 10px;
+      margin-top: 25px;
+      margin-left: 25vw;
+      padding: 2px;
     }
 
     #character {
-      background-color: #37FF34;
+      background-color: hsl(252, 96%, 70%);
 
       height: 225px;
       width: 225px;
@@ -78,7 +80,7 @@
       height: 40px;
       width: 30px;
       
-      border-radius:20%;
+      border-radius: 20%;
       position: absolute;
     }
 
@@ -93,39 +95,55 @@
       
     }
     
-    #popup {
-      position: fixed;
-      top: 0;
-      left: 0;
-      
+    .post img {
       width: 100%;
       height: 100%;
       
-      background: white;
+      border-radius: 2%;
+      object-fit: cover;
+    }
+    
+    #popup {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      
+      width: 50%;
+      height: 50%;
+      
+      border-radius: 10%;
+      border: 8px solid white;
+      
+      background: hsl(252, 96%, 70%);
       display: none;
       
       justify-content: center;
       align-items: center;
-      z-index: 10;
+      z-index: 999;
     }
     
     #popup-content {
-      background: white;
+      background: hsl(237, 100%, 86%);
       
+      height: 75%;
+      width: 75%;
       padding: 20px;
       
       border-radius: 20px;
+      border: 8px solid white;
       max-width: 600px;
       
       position: relative;
       text-align: center;
       
+      color: white;
+      font: Avantgarde, TeX Gyre Adventor, URW Gothic L, sans-serif;
+      font-size: 32px;
     }
     
     #close-button {
       position: absolute;
-      top: 10px;
-      left: 10px;
       
       background: black;
       color: white;
@@ -143,9 +161,19 @@
   </style>
   
   <!--  JAVA SCRIPT  -->
-  
-  
   <script>
+    
+    function openPopup(text) {
+      const popup = document.getElementById("popup");
+      const popupText = document.getElementById("popup-text");
+      popupText.textContent = text;
+      popup.style.display = "flex";
+    }
+
+    function closePopup() {
+      document.getElementById("popup").style.display = "none";
+    }
+    
     document.addEventListener("mousemove", (event) => {
       const eyes = document.querySelectorAll(".eye");
       eyes.forEach(eye => {
@@ -170,15 +198,26 @@
   
   <!--  HTML BODY  -->
   <body>
-    <div id="header"> Natalyah Land </div>
+    <!-- <div id="header"> Natalyah Land </div> -->
     
     <div id="container">
       
-      <div class="post"></div>
-      <div class="post"></div>
-      <div class="post"></div>
+      <div class="post" onclick="openPopup('I love my brother. On this trip to Jamaica we got sit together and enjoy a wedding after monthes apart.')">
+        <img src="MeAndJJ.JPG" alt="You should see me and my brother">
+      </div>
       
-      <div class="post"></div>
+      <div class="post" onclick="openPopup('Modeling has been a very fun part of my undergraduate experience. In this picture you see myself with my two friends and model partner backstage at a show.')">
+        <img src="BackStage.jpeg" alt="You should see my friends and I backstage for a modeling event.">
+      </div>
+      
+      <div class="post" onclick="openPopup('My friend Brianna is one of the most amazing and fun people I have ever met. She has been there for me through some rough times and I truly deeply love her.')">
+        <img src="MeAndBri.JPG" alt="You should see me and my friend Brianna">
+      </div>
+      
+      <div class="post" onclick="openPopup('While it may not seem like it from these photos... I am in fact a student. Here was a fun lab I did with my friend Yannick.., I definitely did all of the work.')">
+        <img src="Lab.JPG" alt="You should see me and my friend Yannick in Lab">
+      </div>
+      
       <div id="character">
         <div class="eye">
           <div class="pupil"></div>
@@ -187,13 +226,34 @@
           <div class="pupil"></div>
         </div>
       </div>
-      <div class="post"></div>
       
-      <div class="post"></div>
-      <div class="post"></div>
-      <div class="post"></div>
+      <div class="post" onclick="openPopup('Here is a picture from an event I cannot remember and a photographer I did not know was there. I love my girls though!')">
+        <img src="MeAndGirls.png" alt="You should see me and my friends - I have no clue who took this picture. ">
+      </div>
+      
+      <div class="post" onclick="openPopup('A photo of me and my wonderful roomates and brianna again after a long day at an event.')">
+        <img src="MeAndGirls2.jpeg" alt="You should see a mirror selfie with me and my friends">
+      </div>
+      
+      <div class="post" onclick="openPopup('Here is me and my birthgiver, my light, and one of my biggest inspirations of how to be an incredible mother, wife and woman. I LOVE YOU MOM.')">
+        <img src="MeAndMom.jpg" alt="You should see me and my mom in Jamaica">
+      </div>
+      
+      <div class="post" onclick="openPopup('Here is a beautiful photo of two of my former roommates and curretn besties. They have been a major support and have always felt like sister figures to me.')">
+        <img src="MeAndGirls3.jpeg" alt="You should see me and 2 of my best friends in white after convocation.">
+      </div>
     
     </div>
+    
+    <div id="popup">
+      <div id="popup-content">
+        <button id="close-btn" onclick="closePopup()">X</button>
+        <p id="popup-text"></p>
+      </div>
+    </div>
+    
+    <div id="footer"> Hint: You Should Click things </div>
+    
     
   </body>
   
